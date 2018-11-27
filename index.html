@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Tank City, 2018</title>
+</head>
+<body>
+	<section id="start-scene">
+		<div id="info-box">
+			<div class="img-box">
+				<img id="greenTank-img" src="img/greenTank.png" alt="">
+				<img id="flag-img" src="img/flag.png" alt="">
+				<img id="yellowTank-img" src="img/yellowTank.png" alt="">
+			</div>
+			<div id="game-name">
+				Танки
+			</div>
+			<div id="game-rule">
+				Управляйте танком используя клавиши: Вверх, Вниз, Влево, Вправо или Пробел. Уничтожайте вражеские танки чтобы добраться к вражеской базе.
+			</div>
+			<div id="press-start">
+				Нажмите клавишу Enter
+			</div>
+		</div>
+	</section>
+	<main id="game-scene">
+		<div id="board">
+			<div id="result-box">
+				<div id="result">undefined</div>
+			</div>
+			<div class="row">
+				<div id="row-0-col-0"></div>
+				<div id="row-0-col-1"></div>
+				<div id="row-0-col-2"></div>
+				<div id="row-0-col-3"></div>
+				<div id="row-0-col-4"></div>
+				<div id="row-0-col-5"></div>
+				<div id="row-0-col-6"></div>
+				<div id="row-0-col-7"></div>
+				<div id="row-0-col-8"></div>
+				<div id="row-0-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-1-col-0"></div>
+				<div id="row-1-col-1"></div>
+				<div id="row-1-col-2"></div>
+				<div id="row-1-col-3"></div>
+				<div id="row-1-col-4"></div>
+				<div id="row-1-col-5"></div>
+				<div id="row-1-col-6"></div>
+				<div id="row-1-col-7"></div>
+				<div id="row-1-col-8"></div>
+				<div id="row-1-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-2-col-0"></div>
+				<div id="row-2-col-1"></div>
+				<div id="row-2-col-2"></div>
+				<div id="row-2-col-3"></div>
+				<div id="row-2-col-4"></div>
+				<div id="row-2-col-5"></div>
+				<div id="row-2-col-6"></div>
+				<div id="row-2-col-7"></div>
+				<div id="row-2-col-8"></div>
+				<div id="row-2-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-3-col-0"></div>
+				<div id="row-3-col-1"></div>
+				<div id="row-3-col-2"></div>
+				<div id="row-3-col-3"></div>
+				<div id="row-3-col-4"></div>
+				<div id="row-3-col-5"></div>
+				<div id="row-3-col-6"></div>
+				<div id="row-3-col-7"></div>
+				<div id="row-3-col-8"></div>
+				<div id="row-3-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-4-col-0"></div>
+				<div id="row-4-col-1"></div>
+				<div id="row-4-col-2"></div>
+				<div id="row-4-col-3"></div>
+				<div id="row-4-col-4"></div>
+				<div id="row-4-col-5"></div>
+				<div id="row-4-col-6"></div>
+				<div id="row-4-col-7"></div>
+				<div id="row-4-col-8"></div>
+				<div id="row-4-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-5-col-0"></div>
+				<div id="row-5-col-1"></div>
+				<div id="row-5-col-2"></div>
+				<div id="row-5-col-3"></div>
+				<div id="row-5-col-4"></div>
+				<div id="row-5-col-5"></div>
+				<div id="row-5-col-6"></div>
+				<div id="row-5-col-7"></div>
+				<div id="row-5-col-8"></div>
+				<div id="row-5-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-6-col-0"></div>
+				<div id="row-6-col-1"></div>
+				<div id="row-6-col-2"></div>
+				<div id="row-6-col-3"></div>
+				<div id="row-6-col-4"></div>
+				<div id="row-6-col-5"></div>
+				<div id="row-6-col-6"></div>
+				<div id="row-6-col-7"></div>
+				<div id="row-6-col-8"></div>
+				<div id="row-6-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-7-col-0"></div>
+				<div id="row-7-col-1"></div>
+				<div id="row-7-col-2"></div>
+				<div id="row-7-col-3"></div>
+				<div id="row-7-col-4"></div>
+				<div id="row-7-col-5"></div>
+				<div id="row-7-col-6"></div>
+				<div id="row-7-col-7"></div>
+				<div id="row-7-col-8"></div>
+				<div id="row-7-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-8-col-0"></div>
+				<div id="row-8-col-1"></div>
+				<div id="row-8-col-2"></div>
+				<div id="row-8-col-3"></div>
+				<div id="row-8-col-4"></div>
+				<div id="row-8-col-5"></div>
+				<div id="row-8-col-6"></div>
+				<div id="row-8-col-7"></div>
+				<div id="row-8-col-8"></div>
+				<div id="row-8-col-9"></div>
+			</div>
+			<div class="row">
+				<div id="row-9-col-0"></div>
+				<div id="row-9-col-1"></div>
+				<div id="row-9-col-2"></div>
+				<div id="row-9-col-3"></div>
+				<div id="row-9-col-4"></div>
+				<div id="row-9-col-5"></div>
+				<div id="row-9-col-6"></div>
+				<div id="row-9-col-7"></div>
+				<div id="row-9-col-8"></div>
+				<div id="row-9-col-9"></div>
+			</div>
+		</div>
+	</main>
+	<script src="engine.js"></script>
+</body>
+</html>

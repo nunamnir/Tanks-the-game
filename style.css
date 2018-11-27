@@ -1,0 +1,392 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: gray;
+}
+
+/*Фаза 1*/
+#start-scene {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+}
+
+#game-name {
+	position: relative;
+	font-family: Verdana, sans-serif;
+	padding: 2px;
+	margin: 3px;
+	color: rgb(204, 0, 0);
+	font-size: 50px;
+	text-shadow: 1px 1px 1px white, 0 0 0.1em white;
+	text-transform: uppercase;
+	text-align: center;
+	z-index: 3;
+	font-weight: bold;
+}
+
+#info-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 504px;
+	width: 504px;
+	background-color: rgba(0, 0, 0, 1);
+	border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+#game-rule {
+	position: relative;
+	font-family: cambria, sans-serif;
+	padding: 5px;
+	margin: 0px;
+	text-shadow: 1px 1px 1px black;
+	color: white;
+	font-size: 18px;
+	text-align: justify;
+	padding: 1.5em;
+}
+
+#press-start {
+	position: relative;
+	font-family: arial black, sans-serif;
+	padding: 5px;
+	margin: 0px;
+	text-shadow: 1px 1px 1px white, 0 0 1px white;
+	color: #9900ff;
+	font-size: 22px;
+	text-align: center;
+	padding: 0 10px 0 10px;
+}
+
+#greenTank-img {
+	height: 50px;
+	width: 50px;
+	transform: rotate(90deg);
+}
+
+#flag-img {
+	height: 50px;
+	width: 50px;
+	margin: 0 20px 0 20px;
+}
+
+#yellowTank-img {
+	height: 50px;
+	width: 50px;
+	transform: rotate(-90deg);
+}
+
+.blink {
+	opacity: 0;
+}
+
+/*Фаза 2*/
+#game-scene {
+	display: none;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#board {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border: 2px solid rgba(255, 255, 255, 0.9);
+	background-color: black;
+}
+
+#player-tank {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/greenTank.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	z-index: 2;
+	transition: top .3s linear, left .3s linear;
+}
+
+#player-shell {
+	position: absolute;
+	background: url(img/tank-shell.png) no-repeat center;
+	background-size: 15px 15px;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+	transition: top .3s linear, left .3s linear;
+}
+
+#enemy-tank1 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/yellowTank.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	z-index: 2;
+	transition: top .3s linear, left .3s linear;
+}
+
+#enemy-shell1 {
+	position: absolute;
+	background: url(img/tank-shell.png) no-repeat center;
+	background-size: 15px 15px;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+	transition: top .3s linear, left .3s linear;
+}
+
+#enemy-tank2 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/yellowTank.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	z-index: 2;
+	transition: top .3s linear, left .3s linear;
+}
+
+#enemy-shell2 {
+	position: absolute;
+	background: url(img/tank-shell.png) no-repeat center;
+	background-size: 15px 15px;
+	width: 50px;
+	height: 50px;
+	z-index: 1;
+	transition: top .3s linear, left .3s linear;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.row div {
+	width: 50px;
+	height: 50px;
+	/*border: 0.5px solid rgba(211, 211, 211, 0.2);*/
+}
+
+/*slot type*/
+
+.slot-type-0 {
+	opacity: 0;
+}
+
+.slot-type-1 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/armored-wall.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+.slot-type-2 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/wall.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+.slot-type-3 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/water.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+.slot-type-4 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/wood.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	box-shadow: 0 0 10px rgba(0,0,0,1);
+	z-index: 4;
+}
+
+.slot-type-6 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/flag-destroyed.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	/*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+	transform: rotate(180deg);
+}
+
+.slot-type-7 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/flag-destroyed.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	/*box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+}
+
+.slot-type-8 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/flag.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	/*box-shadow: 0 0 10px rgba(255,255,255,0.1);*/
+}
+
+.slot-type-9 {
+	width: 50px;
+	height: 50px;
+	background-image: url(img/flag.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	/*box-shadow: 0 0 10px rgba(255,255,255,0.1);*/
+	transform: rotate(180deg);
+}
+
+.my_spawn-1 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/spawn2.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	transform: rotate(180deg);
+	z-index: 5;
+}
+
+.my_spawn-2 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/spawn1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	transform: rotate(180deg);
+	z-index: 6;
+}
+
+.t1_spawn-1 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/spawn2.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	transform: rotate(180deg);
+	z-index: 5;
+}
+
+.t1_spawn-2 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/spawn1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	transform: rotate(180deg);
+	z-index: 6;
+}
+
+.t2_spawn-1 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/spawn2.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	transform: rotate(180deg);
+	z-index: 5;
+}
+
+.t2_spawn-2 {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-image: url(img/spawn1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+	transform: rotate(180deg);
+	z-index: 6;
+}
+
+/*muzzle direction*/
+
+.muzzle-dir-0 {
+	transform: rotate(0deg);
+}
+
+.muzzle-dir-1 {
+	transform: rotate(90deg);
+}
+
+.muzzle-dir-2 {
+	transform: rotate(180deg);
+}
+
+.muzzle-dir-3 {
+	transform: rotate(270deg);
+}
+
+/*Фаза 3*/
+
+#result-box {
+	position: absolute;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 504px;
+	width: 504px;
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 5;
+}
+
+#result {
+	color: white;
+	font-family: Verdana, sans-serif;
+	font-size: 50px;
+	font-variant: small-caps;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 1px 1px 1px white, 0 0 0.1em white;
+	letter-spacing: 0.2em;
+}
